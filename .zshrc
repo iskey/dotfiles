@@ -82,3 +82,33 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias updatedb="updatedb -U ~/ -o ~/iskey/iskey.db -l 0"
+alias locate="locate -d ~/iskey/iskey.db"
+alias iskey="tmux attach -t iskey"
+
+export DISABLE_AUTO_TITLE="true"
+
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
+
+#showkey -a to find key acsii.
+
+# mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
+
+# Ctrl+Backspace/Delete to delete whole words
+# This is for xshell, remap Ctrl+Delete to run scripts 'xsh.Screen.Send chr(31)'
+bindkey "^_" kill-word
+bindkey "^?" backward-kill-word
+
+# Use Alt/Meta + Delete to delete the preceding word
+bindkey "\e[4;3~" kill-word
+
+# Use the text that has already been typed as the prefix for searching through
+# commands (i.e. more intelligent Up/Down behavior)
+bindkey "\e[B": history-search-forward
+bindkey "\e[A": history-search-backward
+
+bindkey -s "^L" "ls -l\n"
+bindkey -s "^F" "[ -f ../tool/Genset_Vers/DEBUG/MSXP.set ] && cp ../tool/Genset_Vers/DEBUG/MSXP.set ~/ftpboot/ -v\n"
