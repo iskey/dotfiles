@@ -96,6 +96,10 @@ export DISABLE_AUTO_TITLE="true"
 # mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
+#for xshell
+bindkey "^[OC" forward-word
+bindkey "^[OD" backward-word
+
 
 # Ctrl+Backspace/Delete to delete whole words
 # This is for xshell, remap Ctrl+Delete to run scripts 'xsh.Screen.Send chr(31)'
@@ -112,3 +116,9 @@ bindkey "\e[A": history-search-backward
 
 bindkey -s "^L" "ls -l\n"
 bindkey -s "^F" "[ -f ../tool/Genset_Vers/DEBUG/MSXP.set ] && cp ../tool/Genset_Vers/DEBUG/MSXP.set ~/ftpboot/ -v\n"
+
+#tmux bugs fix
+bindkey "^[OC" forward-char
+bindkey "^[OD" backward-char
+bindkey "^[[C" forward-word
+bindkey "^[[D" backward-word
